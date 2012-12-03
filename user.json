@@ -1,0 +1,59 @@
+var user={
+	id:'',
+	userName:'wangyuxin',
+	realName:'王宇昕',
+	company:'zhaoonline',
+	password:'*******',
+	email:'wangyuxin@zhaoonline.com',
+	state:1,
+	loginTimes:2
+};
+var member={
+	id:'',
+	memberName:'文鑫',
+	memberNo:'1023',
+	sex:'男',
+	department:'技术部',
+	userName:'wangyuxin',
+	company:'zhaoonline',
+	position:'软件工程师',
+	lotteryCode:'20130125zhaoonline',
+	state:1
+};
+var lotterysetting={
+	id:'',
+	title:'赵涌在线2013年年会抽奖',
+	company:'zhaoonline',
+	username:'wangyuxin',
+	lotteryCode:'20130125zhaoonline',
+	awardLevelName:'三等奖',
+	awardLevelCode:'three1',
+	awardPicName:[{
+		awardName:'购物卡',
+		imageUrl:'http://image.jpg'
+			}],
+	order:1,
+	message:'恭喜你获得三等奖',
+	lotteryMembersNum:30,
+	lotteryTimes:5,
+	lotteryTimeMemberNum:6,
+	speed:2000,
+	DescAsc:'desc'
+};
+var lotteryNow={
+	id:'',
+	lotteryCode:'20130125zhaoonline',
+	title:'赵涌在线2013年年会抽奖',
+	message:'恭喜你获得三等奖',
+	nowOrder:4,
+	nowLotteryTime:1,
+	lotteryTimes:5
+	DescAsc:'desc'
+}
+var winAwardMembers={
+	id:'',
+	memberNo:'1023',
+	lotteryCode:'20130125zhaoonline',
+	awardLevelName:'三等奖',
+	awardLevelCode:'three1'
+}
