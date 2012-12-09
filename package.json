@@ -8,6 +8,11 @@
   "dependencies": {
     "express": "3.0.3",
     "ejs": "*",
-    "stylus": "*"
+    "mongoose":"*",
+    "express-partials":"*",
+    "emailjs":"*",
+    "connect-flash":"*",
+    "connect-mongo":"*",
+    "websocket":"*"
   }
 }
