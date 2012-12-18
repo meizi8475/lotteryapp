@@ -43,11 +43,17 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
+            <%if(!locals.user){%>
+            <form class="navbar-form pull-right" method='post' action="/login">
+              <input class="span2" type="text" placeholder="Email" name="userName">
+              <input class="span2" type="password" placeholder="Password" name="password">
               <button type="submit" class="btn">登录</button>
+              <a href="/redicetSign">用户注册</a>
             </form>
+            <%} else{%>
+            	<li class="active">欢迎<%=locals.user.userName%>登录</a></li>
+            	<a href="#">登出</a>
+            <%}%>
           </div><!--/.nav-collapse -->
         </div>
       </div>

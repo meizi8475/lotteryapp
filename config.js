@@ -29,7 +29,7 @@ module.exports = function(express, app) {
 									}),
 							secret : 'lotterySecret',
 							cookie : {
-								maxAge : 1 * 24 * 60 * 60 * 1000
+								maxAge : 60000 * 30
 							}
 						}));
 				app.use(app.router);
