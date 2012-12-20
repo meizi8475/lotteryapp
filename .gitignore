@@ -11,5 +11,8 @@ lib-cov
 pids
 logs
 results
+sass/
+.sass-cache/
+config.rb
 
 npm-debug.log

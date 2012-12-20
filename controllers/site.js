@@ -1,20 +1,20 @@
 /**
  * site.js 负责大模块跳转
  */
-exports.index=function(req, res, next){
-	res.render('index',{
-		layout: 'layout',									
-		base: '/',
-		user : req.session.user,
-		success : req.flash('success').toString(),
-		error : req.flash('error').toString()
-	});
+exports.index = function (req, res, next) {
+    var pageInfo = {
+        title : "抽疯网",
+        user : req.session.user,
+        success : req.flash('success').toString(),
+        error : req.flash('error').toString()
+    }
+    res.render('index', pageInfo)
 }
 
-exports.redicetSign=function(req, res, next){
-	res.render('sign',{
-		layout: 'layout',									
-		success : req.flash('success').toString(),
-		error : req.flash('error').toString()
-	});
+exports.redicetSign = function (req, res, next) {
+    res.render('sign', {
+        title: "抽疯网",
+        success : req.flash('success').toString(),
+        error : req.flash('error').toString()
+    });
 }
