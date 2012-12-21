@@ -7,7 +7,7 @@
 	
 	var MemberSchema = new Schema({
 		memberName: { type: String},
-		memberNo: { type:String},
+		memberNo: { type:String,required:true},
 		userName:{type: String, required: true},
         sex:{type:String},
         department:{type:String},

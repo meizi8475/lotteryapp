@@ -51,6 +51,11 @@ exports.login=function(req, res, next){
 	});
 }
 exports.checkOut=function(req, res, next){
-	req.session.destroy();
-	req.redirect('/');
+//	req.session.destroy();
+//	req.redirect('/');
+    User.remove({_id:'50cfdd0f4630447212000001'},function(err,user){
+        if(err){
+            console.log(err);
+        }
+    });
 }

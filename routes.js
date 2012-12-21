@@ -11,6 +11,7 @@ module.exports=function(app){
 	
 	app.post('/signup', sign.signup);
 	app.post('/login',sign.login);
+    app.post('/checkout',sign.checkOut);
 
     app.post('/saveMember',setting.saveMember);
     app.post('/savePrize',setting.savePrize);
