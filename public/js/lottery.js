@@ -23,7 +23,7 @@ $(document).ready(function () {
             username : "",
             password : ""
         },
-        urlRoot : "/users"
+        urlRoot : "/login"
     });
     var LoginView = Backbone.View.extend({
         el : "#login",
@@ -58,11 +58,6 @@ $(document).ready(function () {
             }
         },
         login : function (e) {
-            e.preventDefault();
-            this.model.fetch({
-                data:this.model.toJSON()
-            });
-            this.loginError();
         },
         loginError : function () {
             $("#login").animate({

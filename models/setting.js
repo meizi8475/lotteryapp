@@ -6,14 +6,15 @@
 	, Schema = mongoose.Schema;
 	
 	var MemberSchema = new Schema({
-		memberName: { type: String, required: true},
-		memberNo: { type:String, required:true},
-		email:{type: String, required: true},
-		company:{type: String, required: true},
-		realName:{type: String},
-		created: { type: Date, required: true, default: Date.now()},
-		state:{type:Number,default:0},
-		loginTimes:{type:Number,default:0}
+		memberName: { type: String},
+		memberNo: { type:String},
+		userName:{type: String, required: true},
+        sex:{type:String},
+        department:{type:String},
+        position:{type:String},
+        status:{type:Number,default:0},
+        state:{type:Number,default:0},
+        created:{type: Date, required: true, default: Date.now()}
 	});
 	
 	return mongoose.model('Member', MemberSchema);	
@@ -24,16 +25,23 @@ exports.Member=memberCreate;
 function prizeCreate(){
 	var mongoose = require('mongoose')
 	, Schema = mongoose.Schema;
-	
+
+    var awardPicture=new Schema({
+        awardName:{type:String,required:true},
+        imageUrl:{type:String}
+    });
+
 	var PrizeSchema = new Schema({
-		userName: { type: String, index: true, required: true},
-		password: { type:String, required:true},
-		email:{type: String, required: true},
-		company:{type: String, required: true},
-		realName:{type: String},
-		created: { type: Date, required: true, default: Date.now()},
-		state:{type:Number,default:0},
-		loginTimes:{type:Number,default:0}
+		userName: { type:String, required:true},
+        awardLevelName:{type: String},
+        awardPic:[awardPicture],
+        order:{type:Number,required:true},
+        message:{type:String,default:'恭喜中奖'},
+        lotteryMembersNum:{type:Number,required:true},
+        lotteryTimes:{type:Number,required:true},
+        lotteryTimeMemberNum:{type:Number,required:true},
+        speed:{type:Number,default:2000},
+        created:{type: Date, required: true, default: Date.now()}
 	});
 	
 	return mongoose.model('Prize', PrizeSchema);	

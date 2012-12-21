@@ -34,11 +34,6 @@ module.exports = function (express, app) {
         app.use(app.router);
         app.use(express.static(path.join(__dirname + '/public')));
 
-        app.use(function (req, res, next) {
-            res.render('404', {
-                title : 404
-            });
-        });
 
     });
 
