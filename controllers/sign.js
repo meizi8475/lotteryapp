@@ -9,7 +9,7 @@ exports.checkUserName=function(req, res, next){
 		if(err) return next(err);
 		if(user){
 			req.flash('error','用户名已经被注册');
-			res.end('用户名已经被注册');
+			res.send('用户名已经被注册');
 		}
 	});
 }
@@ -20,18 +20,18 @@ exports.signup = function(req, res, next){
 	var newuser = new User({
 			userName: req.body.username,
 			password: _password,
-			company:req.body.company,
-			realName:req.body.realName
+			company:req.body.company
 		});
-		
-	newuser.save(function(err,user){
+
+    newuser.save(function(err,user){
 					if(err) {
-						req.flash('errorn', err.message);
+						req.flash('error', err.message);
 						return res.redirect('/signup');
 					}
 					return res.redirect('/');
 			});
 }
+
 exports.login=function(req, res, next){
 	var md5 = crypto.createHash('md5');
 	var _password = md5.update(req.body.password).digest('base64');
@@ -51,11 +51,6 @@ exports.login=function(req, res, next){
 	});
 }
 exports.checkOut=function(req, res, next){
-//	req.session.destroy();
-//	req.redirect('/');
-    User.remove({_id:'50cfdd0f4630447212000001'},function(err,user){
-        if(err){
-            console.log(err);
-        }
-    });
+	req.session.destroy();
+	req.redirect('/');
 }

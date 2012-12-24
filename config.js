@@ -8,7 +8,7 @@ module.exports = function (express, app) {
     var partials = require('express-partials');
     var flash = require('connect-flash');
 
-    var DB_URL = "mongodb://localhost:27017/lotterDB";
+    var DB_URL = "mongodb://localhost:27017/lotteryDB";
     mongoose.connect(DB_URL);
 
     app.configure(function () {

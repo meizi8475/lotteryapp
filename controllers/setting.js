@@ -57,14 +57,14 @@ exports.saveMember=function(req, res, next){
 
 exports.findMembers=function(req, res, next){
     var _user=req.session.user;
-    Member.find({userName:_user.userName},function(err,members){
-        if(err) return next(err);
-        return res.send(JSON.stringify(members));
-    });
+    Member.find({userName:_user.userName}).sort({field:'created',test:-1}).limit(0).skip(100).exec(function(err,members){
+            if(err) return next(err);
+            return res.send(JSON.stringify(members));
+        });;
 }
 
 exports.updateMember=function(req, res, next){
-    var _member=req.body.memberinfo;
+    var _member=JSON.parse(req.body.memberinfo);
     Member.remove({_id:_member.id},function(err,member){
         if(err) {
             res.send('修改失败');
@@ -121,8 +121,10 @@ exports.savePrize=function(req, res, next){
         };
         pic.push(newawardPic);
     }
+
     var newPrize=new Prize({
-        userName: req.session.user.userName,
+//        userName: req.session.user.userName,
+        userName:'meizi8475@126.com',
         awardLevelName:prizeJson.awardlevelname,
         awardPic:pic,
         order:prizeJson.order,
@@ -133,7 +135,7 @@ exports.savePrize=function(req, res, next){
         speed:prizeJson.speed
     });
 
-    newPrize.save(function(){
+    newPrize.save(function(err,prize){
         if(err) {
             req.flash('error', err.message);
             return res.send('添加失败');
@@ -143,9 +145,9 @@ exports.savePrize=function(req, res, next){
 
 exports.findPrize=function(req, res, next){
     var _user=req.session.user;
-    Prize.find({userName:_user.userName},function(err,prizes){
-        if(err) return next(err);
-        return res.send(JSON.stringify(prizes));
+    Prize.find({userName:_user.userName}).sort({field:'created',test:-1}).limit(0).skip(100).exec(function(err,prizes){
+            if(err) return next(err);
+            return res.send(JSON.stringify(prizes));
     });
 }
 
