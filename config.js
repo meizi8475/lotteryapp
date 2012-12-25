@@ -33,7 +33,7 @@ module.exports = function (express, app) {
         }));
         app.use(app.router);
         app.use(express.static(path.join(__dirname + '/public')));
-    });
+});
 
     app.configure('development', function () {
         app.use(express.errorHandler({

@@ -22,8 +22,6 @@ $(document).ready(function () {
         el : "#login",
         events : {
             "click #submit" : "login",
-            "change #username" : "checkUsername",
-            "change #password" : "checkPassword"
         },
         initialize : function () {
             this.username = this.$("#username").parents(".control-group");
@@ -51,14 +49,6 @@ $(document).ready(function () {
             }
         },
         login : function (e) {
-            var usernameValid = this.checkUsername(),
-                passwordValid = this.checkPassword();
-            if (!(usernameValid && passwordValid)) {
-                e.preventDefault();
-                this.loginError();
-            } else {
-                //todo 登录成功
-            }
         },
         loginError : function () {
             $("#login").animate({
@@ -82,7 +72,7 @@ $(document).ready(function () {
         },
         validate : function (attrs) {
             if (attrs.password.length < 6) {
-                return "密码不能少于六位"
+                return "error"
             }
         },
         initialize : function () {

@@ -5,21 +5,11 @@ var User = require('../models/user').User();
 var crypto = require('crypto');
 
 exports.checkUserName=function(req, res, next){
-	User.findOne({userName:req.body.userName},function(err, user){
+	User.findOne({userName:req.body.username},function(err, user){
 		if(err) return next(err);
 		if(user){
 			req.flash('error','用户名已经被注册');
-			res.end('用户名已经被注册');
-		}
-	});
-}
-
-exports.checkEmail=function(req, res, next){
-	User.findOne({email:req.body.email},function(err, user){
-		if(err) return next(err);
-		if(user){
-			req.flash('error','邮箱已被注册');
-			res.end('邮箱已被注册');
+			res.send('用户名已经被注册');
 		}
 	});
 }
@@ -28,16 +18,14 @@ exports.signup = function(req, res, next){
 	var md5 = crypto.createHash('md5');
 	var _password = md5.update(req.body.password).digest('base64');
 	var newuser = new User({
-			userName: req.body.userName,
-			email: req.body.email,
+			userName: req.body.username,
 			password: _password,
-			company:req.body.company,
-			realName:req.body.realName
+			company:req.body.company
 		});
-		
-	newuser.save(function(err,user){
+
+    newuser.save(function(err,user){
 					if(err) {
-						req.flash('errorn', err.message);
+						req.flash('error', err.message);
 						return res.redirect('/signup');
 					}
 					return res.redirect('/');
@@ -47,7 +35,7 @@ exports.signup = function(req, res, next){
 exports.login=function(req, res, next){
 	var md5 = crypto.createHash('md5');
 	var _password = md5.update(req.body.password).digest('base64');
-	User.findOne({userName:req.body.userName},function(err,user){
+	User.findOne({userName:req.body.username},function(err,user){
 		if(err) return next(err);
 			if(!user){
 				req.flash('error','用户不存在');
