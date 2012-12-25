@@ -6,6 +6,10 @@ var site = require('./controllers/site'),
     sign = require('./controllers/sign'),
     setting = require("./controllers/setting")
 module.exports = function (app) {
+    app.get("/",site.index);
+    app.get("/accountSetting",setting.accountSetting);
+    app.get("/adminInfo",setting.getAdminInfo);
+    app.post("/adminInfo",setting.changeAdminInfo)
     app.post('/checkout', sign.checkOut);
     app.post('/saveMember', setting.saveMember);
     app.post('/checkMember', setting.checkMember);

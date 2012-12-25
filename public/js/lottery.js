@@ -21,7 +21,7 @@ $(document).ready(function () {
     var LoginView = Backbone.View.extend({
         el : "#login",
         events : {
-            "click #submit" : "login",
+            "click #submit" : "login"
         },
         initialize : function () {
             this.username = this.$("#username").parents(".control-group");
