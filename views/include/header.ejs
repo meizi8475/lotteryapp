@@ -9,7 +9,11 @@
 <body>
 <header id="header">
     <div class="container">
-        <a href="/" id="logo">抽疯网</a>
-        <a href="" class="pull-right" id="register">注册</a>
+            <a href="/" id="logo">抽疯网</a>
+        <% if(!login) { %>
+            <a href="" class="pull-right" id="register">注册</a>
+        <% } else{ %>
+            <a href="" class="pull-right" id="logout">退出</a>
+        <% } %>
     </div>
 </header>

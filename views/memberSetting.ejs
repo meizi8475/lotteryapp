@@ -1,0 +1,47 @@
+<% include ./include/header %>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+            <% include ./include/left %>
+        </div>
+        <div class="span9" id="member">
+            <div class="right-header">
+                <span>人员设置</span>
+                <button id="ensure" class="btn btn-primary pull-right">确认修改</button>
+            </div>
+            <table class="table">
+                <colgroup>
+                    <col width='33%'/>
+                    <col width='33%'/>
+                    <col width='33%'/>
+                </colgroup>
+                <tr>
+                    <td>邮箱</td>
+                    <td><span id="email"></span></td>
+                    <td>不可更改</td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><span class="changeable" id="password"></span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>真实姓名</td>
+                    <td><span class="changeable" id="realName"></span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>昵称</td>
+                    <td><div class="changeable" id="nickname"></div></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>公司名称</td>
+                    <td><div class="changeable" id="company"></div></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<% include ./include/footer %>
