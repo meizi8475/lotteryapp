@@ -6,7 +6,8 @@ exports.index = function (req, res, next) {
         title : "抽疯网",
         user : req.session.user,
         success : req.flash('success').toString(),
-        error : req.flash('error').toString()
+        error : req.flash('error').toString(),
+        login: !!req.session.username
     }
     res.render('index', pageInfo)
 }

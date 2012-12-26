@@ -33,7 +33,7 @@
   text-decoration: none;
 }
 /* line 25, ../sass/lottery.scss */
-#header #register {
+#header #register, #header #logout {
   background-color: #C53727;
   border: 1px solid #B0281A;
   color: #FFF;
@@ -48,7 +48,7 @@
   margin-top: 35px;
 }
 /* line 36, ../sass/lottery.scss */
-#header #register:hover {
+#header #register:hover, #header #logout:hover {
   color: #eee;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dd4b39), color-stop(100%, #d14836));
   background-image: -webkit-linear-gradient(#dd4b39, #d14836);
@@ -62,7 +62,7 @@
 #login {
   overflow: hidden;
   width: 370px;
-  height: 280px;
+  height: 300px;
   margin: 100px auto;
   position: relative;
   -webkit-box-shadow: 0 2px 2px 0 #aaaaaa;
@@ -86,7 +86,7 @@
   border-top-right-radius: 4px;
 }
 
-/* line 61, ../sass/lottery.scss */
+/* line 62, ../sass/lottery.scss */
 #footer {
   background: #eee;
   height: 40px;
@@ -96,9 +96,76 @@
   position: absolute;
   width: 100%;
 }
-/* line 67, ../sass/lottery.scss */
+/* line 68, ../sass/lottery.scss */
 #footer #copyRight {
   line-height: 40px;
   display: block;
   height: 40px;
+}
+
+/* line 75, ../sass/lottery.scss */
+#left-nav {
+  list-style: none;
+  margin: 20px 0;
+  border: 1px solid #E5E5E5;
+  -webkit-border-radius: 6px 6px;
+  -moz-border-radius: 6px / 6px;
+  border-radius: 6px / 6px;
+  overflow: hidden;
+  padding: 0;
+}
+/* line 82, ../sass/lottery.scss */
+#left-nav li {
+  border-bottom: 1px solid #E5E5E5;
+}
+/* line 84, ../sass/lottery.scss */
+#left-nav li:last-child {
+  border-bottom: none;
+}
+/* line 87, ../sass/lottery.scss */
+#left-nav li a {
+  padding: 10px 15px;
+  display: block;
+}
+/* line 90, ../sass/lottery.scss */
+#left-nav li a:hover {
+  background-color: #f5f5f5;
+  text-decoration: none;
+}
+/* line 94, ../sass/lottery.scss */
+#left-nav li a.active {
+  background: #08C;
+  color: #FFF;
+}
+
+/* line 103, ../sass/lottery.scss */
+#admin td {
+  height: 30px;
+  line-height: 30px;
+}
+/* line 106, ../sass/lottery.scss */
+#admin td span {
+  display: block;
+}
+/* line 110, ../sass/lottery.scss */
+#admin input {
+  margin-bottom: 0;
+}
+
+/* line 115, ../sass/lottery.scss */
+.right-header {
+  height: 30px;
+  line-height: 30px;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+/* line 120, ../sass/lottery.scss */
+.right-header span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 126, ../sass/lottery.scss */
+#ensure {
+  display: none;
 }
