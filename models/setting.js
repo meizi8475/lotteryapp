@@ -41,6 +41,7 @@ function prizeCreate(){
         lotteryTimes:{type:Number,required:true},
         lotteryTimeMemberNum:{type:Number,required:true},
         speed:{type:Number,default:2000},
+        state:{type:Number,default:0,required:true},
         created:{type: Date, required: true, default: Date.now()}
 	});
 	

@@ -6,7 +6,7 @@ function checkNO(membersJson,user){
     var arr=[];
     for(var i=0;i<membersJson.length;i++){
         var _member=membersJson[i];
-        Member.findOne({memberNo:_member.memberno,userName:user.username},function(err,member){
+        Member.findOne({memberNo:_member.memberno,userName:'meizi8475@126.com'},function(err,member){
             if(err) return next(err);
             if(member){
                 arr.push(_member.memberno);
@@ -59,7 +59,7 @@ exports.findMembers=function(req, res, next){
     var _user=req.session.user;
     Member.find({userName:_user.userName}).sort({field:'created',test:-1}).limit(0).skip(100).exec(function(err,members){
             if(err) return next(err);
-            return res.send(JSON.stringify(members));
+            return res.send(JSON.stringify(members._doc));
         });;
 }
 
@@ -145,9 +145,9 @@ exports.savePrize=function(req, res, next){
 
 exports.findPrize=function(req, res, next){
     var _user=req.session.user;
-    Prize.find({userName:_user.userName}).sort({field:'created',test:-1}).limit(0).skip(100).exec(function(err,prizes){
+    Prize.find({userName:_user.userName}).sort({field:'order',test:-1}).limit(0).skip(100).exec(function(err,prizes){
             if(err) return next(err);
-            return res.send(JSON.stringify(prizes));
+            return res.send(JSON.stringify(prizes._doc));
     });
 }
 
