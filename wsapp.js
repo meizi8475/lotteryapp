@@ -42,20 +42,13 @@ wsServer.on('request', function(request) {
 
     console.log((new Date()) + ' Connection accepted.');
 
-    connection.sendUTF('连接成功');
-
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
             var jsonObj=JSON.parse(message.utf8Data);
             if(jsonObj.operate=='start'){
-                var a= myLottery.doLottery(jsonObj.user);
-                for (var i=0; i < clients.length; i++) {
-
-                }
+                myLottery.startLottery(jsonObj.user,clients);
             }else if(jsonObj.operate=='stop'){
-                for (var i=0; i < clients.length; i++) {
-
-                }
+                myLottery.stopLottery(jsonObj.user,clients);
             }
         }
     });
